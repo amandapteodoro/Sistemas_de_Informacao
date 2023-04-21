@@ -1,0 +1,86 @@
+print("PROGRAMA PARA MEDIR O PERÍMETRO DE UMA FORMA")
+while True:
+    print("\nSelecione qual opção a seguir você deseja calcular o perímetro:")
+    print("1. Triângulo")
+    print("2. Quadrado/Losango")
+    print("3. Retângulo/Paralelogramo")
+    print("4. Trapézio")
+    print("5. Polígono Regular")
+    print("6. Círculo")
+    
+    while True: 
+        try: 
+            opcao=int(input("Opção desejada: "))
+            if opcao >= 1 and opcao <= 6: 
+                break
+            print("Apenas digite uma das opções!")
+        except ValueError: 
+            print("Apenas números são válidos!")
+    if opcao == 1: #Triângulo
+        while True:
+            try: 
+                A = float(input("Digite o valor do lado A: "))
+                B = float(input("Digite o valor do lado B: "))
+                C = float(input("Digite o valor do lado C: "))
+                perimetro = A + B + C
+                print("\nO perímetro é igual a: ", perimetro)
+                break
+            except ValueError: 
+                print("Apenas números são permitidos!")
+    if opcao == 2:
+        while True:
+            try:
+                L = float(input("Indique o valor do lado: "))
+                perimetro = 4*L
+                print("\nO perimetro é igual a: ", perimetro)
+                break
+            except ValueError:
+                print("Apenas números são permitidos!")
+    if opcao == 3:
+        while True:
+            try:
+                m = float(input("Digite o valor do lado menor: "))
+                M = float(input("Digite o valor do lado maior: "))
+                perimetro = (m*2)+(M*2)
+                print("\nO perímetro é igual a: ", perimetro)
+                break
+            except ValueError: 
+                print("Apenas números são permitidos!")
+    if opcao == 4:
+        while True: 
+            try: 
+                m=float(input("Digite o valor do menor lado: "))
+                M=float(input("Digite o valor do maior lado: "))
+                O=float(input("Digite o valor do lado que conecta o menor com o maior: "))
+                perimetro=m+M+(O*2)
+                print("\nO perímetro é igual a: ", perimetro)
+                break
+            except ValueError:
+                print("Apenas números são permitidos!")
+    if opcao == 5:
+        while True:
+            try: 
+                lado=float(input("Digite o valor do lado: "))
+                Q=int(input("Digite a quantidade de lados: "))
+                perimetro = lado*Q
+                print("\nO perímetro é igual a: ", perimetro)
+                break
+            except ValueError:
+                print("Apenas números são permitidos!")
+    if opcao == 6:
+        while True: 
+            try:
+                R = float(input("Digite a medida do raio: "))
+                perimetro = 2*R*3.1415
+                print("\nO vaor do perímetro é igual a: ", perimetro)
+                break
+            except ValueError:
+                print("Apenas números são permitidos!")
+    while True: 
+        resposta = input("Deseja fazer novo cálculo? S/N: ")
+        if resposta =="S" or resposta == "N":
+            break
+        print("Apenas digite S ou N!")
+    if resposta=="N":
+        break
+print("Obrigada por utilizar o programa!!")
