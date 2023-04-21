@@ -1,0 +1,252 @@
+print ("PROGRAMA PARA ESCREVER POR EXTENSO NÚMEROS MONETÁRIOS ENTRE -999,99 A 999.99\n") 
+
+while True:
+    try:
+        num=input("Digite um número monetário entre -999.99 e 999.99, com no máximo duas casas decimais!: ")
+        valor=float(num)
+    except ValueError:
+        print ("Deve-se digitar um num monetário entre -999,99 e 999.99!")
+    else:
+        parte=num.split(".") # o split separa o texto a partir de um indicador, no caso o "."
+        if parte[0]=="":
+            parte[0]="0"
+        elif parte[0]=="-":
+            parte[0]="0"
+        
+        if len(parte)==1: # se a lista "parte" só tiver 1 item
+            parte.append("00") # utiliza-se o .append para inserir o novo item valor"00" na lista -> para colocar decimais e permitir rodar o programa
+        elif parte[1]=="":
+            parte[1]="00"
+        elif len(parte[1])==1:
+            parte[1]=parte[1]+"0"
+            
+        if len(parte[1])>2: # se a quantidade de caracteres da parte[1], ou seja, do texto que ocupa a primeira posição da lista "parte", for maior que dois: significa que há mais de duas casas decimais!
+            print ("Deve-se digitar um número com apenas duas casas decimais!")
+        else:
+            reais=int(parte[0]) # o item "0" da lista "parte" é o valor dos reais (antes do ponto)
+            centavos=int(parte[1]) # o item "1" da lista "parte" é o valor dos centavos (após o ponto)
+            
+            if reais<-999 or reais>999:
+                print("O número digitado está fora da faixa solicitada!")
+            elif reais==0 and centavos==0:
+                print("zero reais")
+            else:
+                if valor<0:
+                    print("menos ",end="")
+                    reais=-reais
+                
+                dig1centavos=centavos//10 #para descobrir o 1º número dos centavos: a primeira casa sempre será 1, 2, 3, 4, 5, 6, 7, 8 ou 9.
+                dig2centavos=centavos%10 #a 2ª casa decimal sempre será o resto da divisão da segunda casa. Exemplo: 55//10 = 5, com resto 5.
+                dig1reais=reais//100 # para descobrir o 1º número dos reais
+                dig2reais=(reais%100)//10 # para descobrir o 2º número dos reais é necessário pegar o resto da divisão do número por 100 e dividí-lo (sem restos)
+                dig3reais=(reais%100)%10 # para descobrir o 3º número você pega o resto da divisão e o resto dela novamente por 10.
+                
+                if reais==1:
+                    print("um ",end="") # ignora o espaçamento automático para o print do valor.
+                elif reais==2:
+                    print("dois ",end="")
+                elif reais==3:
+                    print("três ",end="")
+                elif reais==4:
+                    print("quatro ",end="")
+                elif reais==5:
+                    print("cinco ",end="")
+                elif reais==6:
+                    print("seis ",end="")
+                elif reais==7:
+                    print("sete ",end="")
+                elif reais==8:
+                    print("oito ",end="")
+                elif reais==9:
+                    print("nove ",end="")
+                elif reais==10:
+                    print("dez ",end="")
+                elif reais==11:
+                    print("onze ",end="")
+                elif reais==12:
+                    print("doze ",end="")
+                elif reais==13:
+                    print("treze ",end="")
+                elif reais==14:
+                    print("quatorze ",end="")
+                elif reais==15:
+                    print("quinze ",end="")
+                elif reais==16:
+                    print("dezesseis ",end="")
+                elif reais==17:
+                    print("dezessete ",end="")
+                elif reais==18:
+                    print("dezoito ",end="")
+                elif reais==19:
+                    print("dezenove ",end="")
+                elif dig1reais==2:
+                    print("duzentos ",end="")
+                elif dig1reais==3:
+                    print("trezentos ",end="")
+                elif dig1reais==4:
+                    print("quatrocentos ",end="")
+                elif dig1reais==5:
+                    print("quinhentos ",end="")
+                elif dig1reais==6:
+                    print("seiscentos ",end="")
+                elif dig1reais==7:
+                    print("setecentos ",end="")
+                elif dig1reais==8:
+                    print("oitocentos ",end="")
+                elif dig1reais==9:
+                    print("novecentos ",end="")
+                elif dig1reais==1 and dig2reais==0 and dig3reais==0:
+                    print("cem ",end="")
+                elif dig1reais==1 and (dig2reais!=0 or dig3reais!=0):
+                    print("cento ", end="")
+                elif dig1reais==0:
+                    print("", end="")
+                
+                if dig1reais!=0 and (dig2reais!= 0 or dig3reais!=0):
+                    print("e ", end="")
+                
+                if dig2reais==2:
+                    print("vinte ",end="")
+                elif dig2reais==3:
+                    print("trinta ",end="")
+                elif dig2reais==4:
+                    print("quarenta ",end="")
+                elif dig2reais==5:
+                    print("cinquenta ",end="")
+                elif dig2reais==6:
+                    print("sessenta ",end="")
+                elif dig2reais==7:
+                    print("setenta ",end="")
+                elif dig2reais==8:
+                    print("oitenta ",end="")
+                elif dig2reais==9:
+                    print("noventa ",end="")
+                elif dig2reais==0:
+                    print("", end="")
+                elif dig2reais==1 and dig3reais==0:
+                    print("dez ",end="")
+                elif dig2reais==1 and dig3reais==1:
+                    print("onze ",end="")
+                elif dig2reais==1 and dig3reais==2:
+                    print("doze ",end="")
+                elif dig2reais==1 and dig3reais==3:
+                    print("treze ",end="")
+                elif dig2reais==1 and dig3reais==4:
+                    print("quatorze ",end="")
+                elif dig2reais==1 and dig3reais==5:
+                    print("quinze ",end="")
+                elif dig2reais==1 and dig3reais==6:
+                    print("dezesseis ",end="")
+                elif dig2reais==1 and dig3reais==7:
+                    print("dezessete ",end="")
+                elif dig2reais==1 and dig3reais==8:
+                    print("dezoito ",end="")
+                elif dig2reais==1 and dig3reais==9:
+                    print("dezenove ", end="")
+                    
+                if dig2reais!=0 and dig2reais!=1 and dig3reais!=0:
+                    print("e ", end="")
+                
+                if dig2reais!=1 and dig3reais!=0:    
+                    if dig3reais==1:
+                        print("um ",end="")
+                    elif dig3reais==2:
+                        print("dois ",end="")
+                    elif dig3reais==3:
+                        print("três ",end="")
+                    elif dig3reais==4:
+                        print("quatro ",end="")
+                    elif dig3reais==5:
+                        print("cinco ",end="")
+                    elif dig3reais==6:
+                        print("seis ",end="")
+                    elif dig3reais==7:
+                        print("sete ",end="")
+                    elif dig3reais==8:
+                        print("oito ",end="")
+                    elif dig3reais==9:
+                        print("nove ",end="")
+                if reais==1:
+                    print("real ",end="")
+                elif reais!=0:
+                    print("reais ",end="")
+                    
+                if reais!=0 and centavos!=0:
+                    print("e ",end="")
+                    
+                if centavos==10:
+                    print("dez ",end="")
+                elif centavos==11:
+                    print("onze ",end="")
+                elif centavos==12:
+                    print("doze ",end="")
+                elif centavos==13:
+                    print("treze ",end="")
+                elif centavos==14:
+                    print("quatorze ",end="")
+                elif centavos==15:
+                    print("quinze ",end="")
+                elif centavos==16:
+                    print("dezesseis ",end="")
+                elif centavos==17:
+                    print("dezessete ",end="")
+                elif centavos==18:
+                    print("dezoito ",end="")
+                elif centavos==19:
+                    print("dezenove ",end="")
+                elif dig1centavos==2:
+                    print("vinte ",end="")
+                elif dig1centavos==3:
+                    print("trinta ",end="")
+                elif dig1centavos==4:
+                    print("quarenta ",end="")
+                elif dig1centavos==5:
+                    print("cinquenta ",end="")
+                elif dig1centavos==6:
+                    print("sessenta ",end="")
+                elif dig1centavos==7:
+                    print("setenta ",end="")
+                elif dig1centavos==8:
+                    print("oitenta ",end="")
+                elif dig1centavos==9:
+                    print("noventa ",end="")
+                    
+                if dig1centavos!=1 and dig2centavos!=0:
+                    if dig1centavos!=0:
+                        print("e ",end="")
+                    
+                    if dig2centavos==1:
+                        print("um ",end="")
+                    elif dig2centavos==2:
+                        print("dois ",end="")
+                    elif dig2centavos==3:
+                        print("três ",end="")
+                    elif dig2centavos==4:
+                        print("quatro ",end="")
+                    elif dig2centavos==5:
+                        print("cinco ",end="")
+                    elif dig2centavos==6:
+                        print("seis ",end="")
+                    elif dig2centavos==7:
+                        print("sete ",end="")
+                    elif dig2centavos==8:
+                        print("oito ",end="")
+                    elif dig2centavos==9:
+                        print("nove ",end="")
+                        
+                if centavos==1:
+                    print("centavo")
+                elif centavos!=0:
+                    print("centavos")
+                
+    while True:
+        resposta=input("\nDeseja utilizar novamente? (S/N): ").upper()
+        if resposta!="S" and resposta!="N":
+            print("\nVocê deve responder ou S, ou N; tente novamente!\n")
+        else:
+            break
+    
+    if resposta=="N":
+        break
+
+print("\nOBRIGADO POR USAR ESTE PROGRAMA!")
